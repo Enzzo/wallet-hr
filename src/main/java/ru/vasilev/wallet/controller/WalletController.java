@@ -1,11 +1,8 @@
 package ru.vasilev.wallet.controller;
 
-import org.hibernate.query.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.ui.Model;
 import ru.vasilev.wallet.exception.InsufficientFundsException;
 import ru.vasilev.wallet.exception.WalletNotFoundException;
 import ru.vasilev.wallet.domain.Wallet;
@@ -21,18 +18,6 @@ public class WalletController {
 
     public WalletController(WalletService walletService){
         this.walletService = walletService;
-    }
-
-    @GetMapping("/test")
-    public void TestGet(){
-        System.out.println("test get");
-        walletService.create(BigDecimal.valueOf(1222234));
-    }
-
-    @PostMapping("/test")
-    public void TestPost(){
-        System.out.println("test post");
-        walletService.create(BigDecimal.valueOf(1222234));
     }
 
     @PostMapping("/wallet")
